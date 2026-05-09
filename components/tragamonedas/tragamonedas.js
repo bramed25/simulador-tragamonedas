@@ -1,0 +1,1 @@
+consolor.log("Tragamonedas.js LISTOOOO");

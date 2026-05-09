@@ -1,0 +1,1 @@
+console.log("diferencias.js LISTO00");
