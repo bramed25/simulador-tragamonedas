@@ -1,5 +1,4 @@
-
-const simbolos = [];
+simbolos = [1,2,3,4,5];
 
 
 // Función para girar un rodillo
