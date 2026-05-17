@@ -58,3 +58,11 @@ const resultado = girarTragamonedas();
 console.log("Rodillos:", resultado.rodillos);
 console.log("Resultado:", resultado.resultado);
 console.log("Boletos ganados:", resultado.boletosGanados);
+
+let creditos = localStorage.getItem("creditosTragamonedas");
+
+if(creditos === null){
+    creditos = 0;
+}
+
+console.log("Tiros disponibles:", creditos);
