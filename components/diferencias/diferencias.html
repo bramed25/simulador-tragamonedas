@@ -9,7 +9,7 @@
 
     <title>Encuentra las Diferencias</title>
 
-    <link rel="stylesheet" href="css/diferencias.css">
+    <link rel="stylesheet" href="diferencias.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
 
@@ -31,32 +31,30 @@
     <!-- JUEGO -->
     <div class="juego">
 
-    <img
-        src=""
-        id="imagenJuego"
-        alt="Juego de diferencias"
-    >
+        <img src="" id="imagenJuego" alt="Juego de diferencias">
 
-    <div class="diferencia" data-id="1"></div>
+        <div class="diferencia" data-id="1"></div>
 
-    <div class="diferencia" data-id="2"></div>
+        <div class="diferencia" data-id="2"></div>
 
-    <div class="diferencia" data-id="3"></div>
+        <div class="diferencia" data-id="3"></div>
 
-</div>
+    </div>
 
     <!-- BOTÓN -->
-    <button id="btnReclamar">
-
-    Reclamar +3 tiros 🎰
-
-   </button>
+    <button id="btnReclamar" disabled>Reclamar 3 Tiros</button>
+    <p id="mensaje"></p>
+    <button class="btn-regresar" onclick="window.location.href='../../index.html'">
+        ⬅️ Volver a la Tragamonedas
+    </button>
 
     <!-- MENSAJE -->
     <div id="mensaje"></div>
 
     <!-- JS -->
-    <script src="js/diferencias.js"></script>
+    <script src="../../js/state.js"></script>
+    <script src="./rompecabezas.js"></script>
+    <script src="diferencias.js"></script>
 
 </body>
 

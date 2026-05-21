@@ -1,0 +1,95 @@
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-image: url("../assets/fondoTragamonedas.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+}
+
+.contenedor-tragamonedas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.maquina {
+    /* Color de base provisional, se puede cambiar por un background-image */
+    background-color: #5599ff; 
+    padding: 30px;
+    border-radius: 20px;
+    border: 6px solid #003366;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.ventana-rodillos {
+    display: flex;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    border: inset 4px #ccc;
+}
+
+.rodillo {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #e5e5e5;
+    border-radius: 10px;
+    background-color: #fafafa;
+}
+
+.rodillo img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.1s;
+}
+
+/* Animación rápida para simular el giro */
+.girando img {
+    animation: giroRapido 0.1s infinite linear;
+}
+
+@keyframes giroRapido {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+.boton-accion {
+    margin-top: 25px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #ff9900;
+    color: white;
+    border: 3px solid #cc7a00;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.boton-accion:disabled {
+    background-color: #777;
+    border-color: #555;
+    cursor: not-allowed;
+}
+
+.mensaje-oculto {
+    visibility: hidden;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff0000;
+}

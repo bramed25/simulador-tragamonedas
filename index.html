@@ -1,62 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Tragamonedas</title>
-
-    <link rel="stylesheet" href="./global.css">
-    <link rel="stylesheet" href="./components/diferencias/diferencias.css">
-    <link rel="stylesheet" href="./components/rompecabezas/rompecabezas.css">
-    <link rel="stylesheet" href="./components/tragamonedas/tragamonedas.css">
+    <title>Tragamonedas - Proyecto Simulación</title>
+    <link rel="stylesheet" href="./css/tragamonedas.css">
 </head>
 <body>
-
-    <section id="vista-tragamonedas">
-        <img src="./assets/decoracion1.png" class="decoracion1">
-        <img src="./assets/decoracion22.png" class="decoracion22">
-        <img src="./assets/decoracion33.png" class="decoracion33">
-        <img src="./assets/decoracion44.png" class="decoracion44">
-    <div class="tragamonedas-container">
-
-
-        <h1 class="titulo">COMIENZA EL JUEGO!!</h1>
-
-        <div class="rodillos">
-
-            <div class="rodillo">
-                <img src="./assets/bluey.png">
-            </div>
-
-            <div class="rodillo">
-                <img src="./assets/bingo.png">
-            </div>
-
-            <div class="rodillo">
-                <img src="./assets/bandit.png">
-            </div>
-
+    <header class="barra-superior">
+        <div class="marcadores">
+            <p>Tiros Disponibles: <span id="ui-tiros">0</span></p>
+            <p>Boletos Ganados: <span id="ui-boletos">0</span></p>
         </div>
+        <nav class="navegacion-juegos">
+            <button onclick="window.location.href='./components/rompecabezas/rompecabezas.html'">🧩 Jugar Rompecabezas</button>
+            <button onclick="window.location.href='./components/diferencias/diferencias.html'">🔍 Jugar Diferencias</button>
+        </nav>
+    </header>
 
-        <button class="tirar-btn">
-            Tirar
-        </button>
+    <main class="contenedor-tragamonedas">
+        <div class="maquina">
+            <div class="ventana-rodillos">
+                <div class="rodillo" id="r1"><img src="./assets/bluey.png" alt=""></div>
+                <div class="rodillo" id="r2"><img src="./assets/bluey.png" alt=""></div>
+                <div class="rodillo" id="r3"><img src="./assets/bluey.png" alt=""></div>
+            </div>
+        </div>
+        
+        <button id="btn-girar" class="boton-accion">GIRAR</button>
+        <p id="mensaje-resultado" class="mensaje-oculto"></p>
+    </main>
 
-    </div>
-
-</section>
-
-    <section id="vista-rompecabezas" style="display: none;">
-        </section>
-
-    <section id="vista-diferencias" style="display: none;">
-        </section>
-
-    <script src="./js/state.js" defer></script>
-    <script src="./js/main.js" defer></script>
-    <script src="./components/tragamonedas/tragamonedas.js" defer></script>
-    <script src="./components/rompecabezas/rompecabezas.js" defer></script>
-    <script src="./components/diferencias/diferencias.js" defer></script>
-
+    <script src="./js/state.js"></script>
+    <script src="./js/tragamonedas.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

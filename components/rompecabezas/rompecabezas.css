@@ -1,0 +1,102 @@
+body {
+    background-image: url("./imagenes/fondoRompecabezas.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.rompecabezas-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 95vh;
+    width: 100%;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+    color: #333;
+}
+
+#grid-rompecabezas {
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+    grid-template-rows: repeat(3, 220px);
+    gap: 4px;
+    background-color: #222;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+}
+
+.pieza {
+    width: 220px;
+    height: 220px;
+    background-image: url('./imagenes/rompecabezas1.png');
+    background-size: 660px 660px; /* Ancho y alto total (220px * 3) */
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-radius 0.2s;
+    box-sizing: border-box;
+}
+
+/* Estado visual cuando seleccionas la primera pieza */
+.pieza.seleccionada {
+    transform: scale(0.94);
+    border: 4px solid #ff9900;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff9900;
+}
+
+/* --- MAPEO MATEMÁTICO DE LA IMAGEN 3X3 --- */
+/* Fila 1 */
+.pieza[data-id="1"] { background-position: 0px 0px; }
+.pieza[data-id="2"] { background-position: -220px 0px; }
+.pieza[data-id="3"] { background-position: -440px 0px; }
+
+/* Fila 2 */
+.pieza[data-id="4"] { background-position: 0px -220px; }
+.pieza[data-id="5"] { background-position: -220px -220px; }
+.pieza[data-id="6"] { background-position: -440px -220px; }
+
+/* Fila 3 */
+.pieza[data-id="7"] { background-position: 0px -440px; }
+.pieza[data-id="8"] { background-position: -220px -440px; }
+.pieza[data-id="9"] { background-position: -440px -440px; }
+
+#mensaje-victoria {
+    margin-top: 25px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2ca810;
+    animation: estallido 0.4s ease-out;
+}
+
+.btn-regresar {
+    margin-top: 25px;
+    padding: 12px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #0055ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.btn-regresar:hover {
+    background-color: #0044cc;
+}
+
+@keyframes estallido {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}

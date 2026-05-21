@@ -91,19 +91,14 @@ function cambiarImagen(){
 
     mensaje.innerHTML = "";
 
-    // Mover diferencias
+    // 👇 NUEVO: Asegurar que el botón esté bloqueado al iniciar
+    botonReclamar.disabled = true; 
+
     diferencias.forEach((diferencia, index) => {
-
-        diferencia.style.top =
-            juegoActual.diferencias[index].top;
-
-        diferencia.style.left =
-            juegoActual.diferencias[index].left;
-
+        diferencia.style.top = juegoActual.diferencias[index].top;
+        diferencia.style.left = juegoActual.diferencias[index].left;
         diferencia.classList.remove("encontrada");
-
     });
-
 }
 
 // ==========================
@@ -112,85 +107,43 @@ function cambiarImagen(){
 
 cambiarImagen();
 
-// ==========================
+/// ==========================
 // DETECTAR DIFERENCIAS
 // ==========================
-
 diferencias.forEach(diferencia => {
-
     diferencia.addEventListener("click", () => {
-
-        // Evita repetir
         if(diferencia.classList.contains("encontrada")){
-            return;
+            return; // Evita repetir
         }
 
         diferencia.classList.add("encontrada");
-
         encontradas++;
-
         contador.textContent = encontradas;
 
+        // 👇 NUEVO: Habilitar el botón automáticamente al llegar a 3
+        if (encontradas === 3) {
+            botonReclamar.disabled = false;
+            mensaje.innerHTML = "¡Excelente! Ya puedes reclamar tus tiros.";
+            mensaje.style.color = "green";
+        }
     });
-
 });
 
 // ==========================
-// VERIFICAR
+// VERIFICAR Y RECLAMAR
 // ==========================
-
 botonReclamar.addEventListener("click", () => {
+    // 1. Apagar el botón de inmediato para evitar que el niño haga "doble clic"
+    botonReclamar.disabled = true;
 
-    // Solo funciona si encontró las 3
-    if(encontradas !== 3){
+    // 2. Sumar 3 tiros usando nuestro estado global centralizado
+    GameState.agregarTiros(3);
 
-        mensaje.innerHTML =
-            "❌ Encuentra las 3 diferencias primero";
+    // 3. Dar retroalimentación de éxito
+    mensaje.innerHTML = "🎉 ¡3 Tiros reclamados con éxito! Volviendo... 🎰";
 
-        return;
-
-    }
-
-    // Obtener créditos actuales
-    let creditos =
-        localStorage.getItem("creditosTragamonedas");
-
-    // Si no existen
-    if(creditos === null){
-
-        creditos = 0;
-
-    }else{
-
-        creditos = parseInt(creditos);
-
-    }
-
-    // Sumar 3 tiros
-    creditos += 3;
-
-    // Guardar créditos
-    localStorage.setItem(
-        "creditosTragamonedas",
-        creditos
-    );
-
-    mensaje.innerHTML =
-        "🎉 Créditos reclamados 🎰";
-
-    // Redireccionar después de 1 segundo
+    // 4. Redireccionar a la máquina tragamonedas (index.html) después de 1.5 segundos
     setTimeout(() => {
-
-        window.location.href =
-            "../Tragamonedas/index.html";
-
-    }, 1000);
-
-    // Nueva imagen aleatoria después de 2 segundos
-    setTimeout(() => {
-
-        cambiarImagen();
-
-    }, 2000);
-
+        window.location.href = "../../index.html";
+    }, 1500); 
 });
