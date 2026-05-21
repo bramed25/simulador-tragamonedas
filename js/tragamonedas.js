@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         actualizarMarcadoresUI();
         
         btnGirar.disabled = true;
-        mensaje.style.visibility = "hidden";
+        mensaje.classList.remove("mostrar-cartel");
 
         // Iniciar animación de rodillos
         const rodillos = [document.getElementById("r1"), document.getElementById("r2"), document.getElementById("r3")];
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function mostrarMensaje(texto, color) {
         mensaje.textContent = texto;
         mensaje.style.color = color;
-        mensaje.style.visibility = "visible";
+        mensaje.classList.add("mostrar-cartel");
     }
 
     function actualizarMarcadoresUI() {

@@ -105,12 +105,35 @@ body {
     transition: transform 0.1s;
 }
 
-.mensaje-oculto {
-    visibility: hidden;
-    margin-top: 20px;
+/* ==========================
+   CARTEL DE RESULTADOS (ANIMADO)
+========================== */
+#mensaje-resultado {
+    margin-top: 25px;
+    padding: 15px 40px;
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #ff0000;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    
+    /* Diseño de letrero de caricatura */
+    background-color: #ffffff;
+    border: 5px solid #003366; /* Mismo azul que los marcadores */
+    border-radius: 25px;
+    box-shadow: 0 8px 0px rgba(0,0,0,0.1);
+    
+    /* Estado inicial: Transparente y encogido */
+    opacity: 0;
+    transform: scale(0.5); 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Curva matemática para el rebote */
+    
+    pointer-events: none; /* Evita que estorbe cuando está oculto */
+}
+
+/* Esta clase la pondremos con JavaScript para que el letrero "salte" */
+#mensaje-resultado.mostrar-cartel {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* ==========================
