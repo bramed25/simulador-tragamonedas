@@ -8,19 +8,61 @@ const diferencias = document.querySelectorAll(".diferencia");
 
 const contador = document.getElementById("contador");
 
-const botonVerificar = document.getElementById("btnVerificar");
+const botonReclamar =
+    document.getElementById("btnReclamar");
 
 const mensaje = document.getElementById("mensaje");
 
 // ==========================
-// IMÁGENES DISPONIBLES
+// JUEGOS
 // ==========================
 
-const imagenes = [
+const juegos = [
 
-    "imagenes/diferencia1.png",
-    "imagenes/diferencia2.png",
-    "imagenes/diferencia3.png"
+    // IMAGEN 1
+    {
+        imagen: "imagenes/diferencias1.png",
+
+        diferencias: [
+
+            { top: "23%", left: "29%" },
+
+            { top: "42%", left: "11%" },
+
+            { top: "83%", left: "33%" }
+
+        ]
+    },
+
+    // IMAGEN 2
+    {
+        imagen: "imagenes/diferencias2.png",
+
+        diferencias: [
+
+            { top: "20%", left: "94%" },
+
+            { top: "42%", left: "50%" },
+
+            { top: "40%", left: "77%" }
+
+        ]
+    },
+
+    // IMAGEN 3
+    {
+        imagen: "imagenes/diferencias3.png",
+
+        diferencias: [
+
+            { top: "85%", left: "48%" },
+
+            { top: "10%", left: "60%" },
+
+            { top: "65%", left: "32%" }
+
+        ]
+    }
 
 ];
 
@@ -36,9 +78,31 @@ let encontradas = 0;
 
 function cambiarImagen(){
 
-    const aleatorio = Math.floor(Math.random() * imagenes.length);
+    const aleatorio = Math.floor(Math.random() * juegos.length);
 
-    imagen.src = imagenes[aleatorio];
+    const juegoActual = juegos[aleatorio];
+
+    imagen.src = juegoActual.imagen;
+
+    // Reiniciar diferencias
+    encontradas = 0;
+
+    contador.textContent = encontradas;
+
+    mensaje.innerHTML = "";
+
+    // Mover diferencias
+    diferencias.forEach((diferencia, index) => {
+
+        diferencia.style.top =
+            juegoActual.diferencias[index].top;
+
+        diferencia.style.left =
+            juegoActual.diferencias[index].left;
+
+        diferencia.classList.remove("encontrada");
+
+    });
 
 }
 
@@ -56,7 +120,7 @@ diferencias.forEach(diferencia => {
 
     diferencia.addEventListener("click", () => {
 
-        // Evita repetir clic
+        // Evita repetir
         if(diferencia.classList.contains("encontrada")){
             return;
         }
@@ -75,17 +139,21 @@ diferencias.forEach(diferencia => {
 // VERIFICAR
 // ==========================
 
-botonVerificar.addEventListener("click", () => {
+botonReclamar.addEventListener("click", () => {
 
     // Solo funciona si encontró las 3
     if(encontradas !== 3){
+
+        mensaje.innerHTML =
+            "❌ Encuentra las 3 diferencias primero";
 
         return;
 
     }
 
     // Obtener créditos actuales
-    let creditos = localStorage.getItem("creditosTragamonedas");
+    let creditos =
+        localStorage.getItem("creditosTragamonedas");
 
     // Si no existen
     if(creditos === null){
@@ -102,12 +170,27 @@ botonVerificar.addEventListener("click", () => {
     creditos += 3;
 
     // Guardar créditos
-    localStorage.setItem("creditosTragamonedas", creditos);
+    localStorage.setItem(
+        "creditosTragamonedas",
+        creditos
+    );
 
-    mensaje.innerHTML = `
-        🎉 Ganaste 3 tiros para la tragamonedas 🎰
-    `;
+    mensaje.innerHTML =
+        "🎉 Créditos reclamados 🎰";
 
-    botonVerificar.disabled = true;
+    // Redireccionar después de 1 segundo
+    setTimeout(() => {
+
+        window.location.href =
+            "../Tragamonedas/index.html";
+
+    }, 1000);
+
+    // Nueva imagen aleatoria después de 2 segundos
+    setTimeout(() => {
+
+        cambiarImagen();
+
+    }, 2000);
 
 });
