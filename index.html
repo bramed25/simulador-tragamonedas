@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tragamonedas - Proyecto Simulación</title>
     <link rel="stylesheet" href="./css/tragamonedas.css">
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
-    <header class="barra-superior">
+    <!-- <header class="barra-superior">
         <div class="marcadores">
             <p>Tiros Disponibles: <span id="ui-tiros">0</span></p>
             <p>Boletos Ganados: <span id="ui-boletos">0</span></p>
         </div>
         <nav class="navegacion-juegos">
-            <button onclick="window.location.href='./components/rompecabezas/rompecabezas.html'">🧩 Jugar Rompecabezas</button>
-            <button onclick="window.location.href='./components/diferencias/diferencias.html'">🔍 Jugar Diferencias</button>
+            <button class="btn-cartoon btn-azul" onclick="window.location.href='./components/rompecabezas/rompecabezas.html'">Jugar Rompecabezas</button>
+            <button class="btn-cartoon btn-azul" onclick="window.location.href='./components/diferencias/diferencias.html'">Jugar Diferencias</button>
         </nav>
-    </header>
+    </header> -->
+
+    <div class="marcadores">
+            <p>Tiros Disponibles: <span id="ui-tiros">0</span></p>
+            <p>Boletos Ganados: <span id="ui-boletos">0</span></p>
+        </div>
 
     <main class="contenedor-tragamonedas">
         <div class="maquina">
@@ -27,9 +33,16 @@
             </div>
         </div>
         
-        <button id="btn-girar" class="boton-accion">GIRAR</button>
+        <button id="btn-girar" class="btn-cartoon btn-azul">GIRAR</button>
         <p id="mensaje-resultado" class="mensaje-oculto"></p>
     </main>
+
+    <header class="barra-superior">
+        <nav class="navegacion-juegos">
+            <button class="btn-cartoon btn-azul" onclick="window.location.href='./components/rompecabezas/rompecabezas.html'">Jugar Rompecabezas</button>
+            <button class="btn-cartoon btn-azul" onclick="window.location.href='./components/diferencias/diferencias.html'">Jugar Diferencias</button>
+        </nav>
+    </header>
 
     <script src="./js/state.js"></script>
     <script src="./js/tragamonedas.js"></script>

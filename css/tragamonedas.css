@@ -67,23 +67,42 @@ body {
     100% { transform: translateY(100%); }
 }
 
-.boton-accion {
-    margin-top: 25px;
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #ff9900;
-    color: white;
-    border: 3px solid #cc7a00;
-    border-radius: 10px;
-    text-transform: uppercase;
+.maquina {
+    /* Un amarillo estilo "Muffin" o sol de caricatura */
+    background-color: #ffcf54; 
+    padding: 35px;
+    border-radius: 35px; /* Más redondo */
+    border: 8px solid #d49a00; /* Borde grueso tipo dibujo animado */
+    box-shadow: 0 15px 0px rgba(0,0,0,0.15); /* Sombra pesada */
 }
 
-.boton-accion:disabled {
-    background-color: #777;
-    border-color: #555;
-    cursor: not-allowed;
+.ventana-rodillos {
+    display: flex;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    border: 6px solid #b3b3b3;
+    box-shadow: inset 0 8px 0px rgba(0,0,0,0.08); /* Sombra interna para dar profundidad */
+}
+
+.rodillo {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 6px solid #e0e0e0;
+    border-radius: 15px;
+    background-color: #f8f8f8;
+    box-shadow: inset 0 5px 0px rgba(0,0,0,0.05);
+}
+
+.rodillo img {
+    width: 90%; /* Un poquito de margen interno a los personajes */
+    height: auto;
+    transition: transform 0.1s;
 }
 
 .mensaje-oculto {
@@ -92,4 +111,65 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: #ff0000;
+}
+
+/* ==========================
+   CONTENEDOR DE MARCADORES (BARRA SUPERIOR)
+========================== */
+
+.barra-superior {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.marcadores {
+    display: flex;
+    gap: 30px; /* Separación entre Tiros y Boletos */
+    background-color: #ffffff; /* Fondo blanco limpio */
+    padding: 12px 30px;
+    
+    /* Estilo de dibujo animado: borde grueso y muy redondeado */
+    border: 5px solid #003366; 
+    border-radius: 25px;
+    
+    /* Sombra plana (flat shadow) sin difuminar */
+    box-shadow: 0 8px 0px rgba(0, 0, 0, 0.1); 
+}
+
+.marcadores p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2b2b2b;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el texto y el número */
+}
+
+/* ==========================
+   BURBUJAS PARA LOS NÚMEROS (SPANS)
+========================== */
+
+.marcadores p span {
+    display: inline-block;
+    color: #ffffff;
+    padding: 4px 16px;
+    border-radius: 50px; /* Forma de píldora */
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 -4px 0px rgba(0, 0, 0, 0.15); /* Sombra interna flat */
+}
+
+/* Burbuja de Tiros: Naranja como Bingo */
+#ui-tiros {
+    background-color: #ff9900;
+    border: 3px solid #cc7a00;
+}
+
+/* Burbuja de Boletos: Azul como Bluey */
+#ui-boletos {
+    background-color: #4facfe;
+    border: 3px solid #0077b6;
 }

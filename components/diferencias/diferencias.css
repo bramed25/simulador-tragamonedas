@@ -148,27 +148,6 @@ h1{
 
 }
 
-/* ==========================
-   BOTÓN
-========================== */
-
-#btnReclamar{
-
-    font-family: 'Fredoka', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-            background: linear-gradient(to bottom, #00529b, #003366); /* Degradado azul */
-            border: none;
-            border-bottom: 6px solid #001a33; /* Efecto 3D abajo */
-            border-radius: 50px; /* Bordes completamente ovalados */
-            padding: 12px 35px;
-            cursor: pointer;
-            transition: all 0.1s ease;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-            text-transform: uppercase;
-
-}
 
 /* ==========================
    MENSAJE

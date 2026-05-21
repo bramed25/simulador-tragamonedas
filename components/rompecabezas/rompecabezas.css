@@ -79,23 +79,6 @@ h2 {
     animation: estallido 0.4s ease-out;
 }
 
-.btn-regresar {
-    margin-top: 25px;
-    padding: 12px 35px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #0055ff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.2s;
-}
-
-.btn-regresar:hover {
-    background-color: #0044cc;
-}
-
 @keyframes estallido {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
