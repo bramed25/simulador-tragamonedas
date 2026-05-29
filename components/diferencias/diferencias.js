@@ -40,11 +40,11 @@ const juegos = [
 
         diferencias: [
 
-            { top: "20%", left: "94%" },
+            { top: "20%", left: "40%" },
 
-            { top: "42%", left: "50%" },
+            { top: "42%", left: "49%" },
 
-            { top: "40%", left: "77%" }
+            { top: "40%", left: "30%" }
 
         ]
     },
@@ -57,7 +57,7 @@ const juegos = [
 
             { top: "85%", left: "48%" },
 
-            { top: "10%", left: "60%" },
+            { top: "55%", left: "60%" },
 
             { top: "65%", left: "32%" }
 
@@ -91,7 +91,7 @@ function cambiarImagen(){
 
     mensaje.innerHTML = "";
 
-    // 👇 NUEVO: Asegurar que el botón esté bloqueado al iniciar
+    // Asegurar que el botón esté bloqueado al iniciar
     botonReclamar.disabled = true; 
 
     diferencias.forEach((diferencia, index) => {
@@ -101,15 +101,11 @@ function cambiarImagen(){
     });
 }
 
-// ==========================
 // INICIAR JUEGO
-// ==========================
 
 cambiarImagen();
 
-/// ==========================
 // DETECTAR DIFERENCIAS
-// ==========================
 diferencias.forEach(diferencia => {
     diferencia.addEventListener("click", () => {
         if(diferencia.classList.contains("encontrada")){
@@ -129,20 +125,18 @@ diferencias.forEach(diferencia => {
     });
 });
 
-// ==========================
 // VERIFICAR Y RECLAMAR
-// ==========================
 botonReclamar.addEventListener("click", () => {
-    // 1. Apagar el botón de inmediato para evitar que el niño haga "doble clic"
+    // Apagar el botón de inmediato para evitar que el niño haga "doble clic"
     botonReclamar.disabled = true;
 
-    // 2. Sumar 3 tiros usando nuestro estado global centralizado
+    // Sumar 3 tiros usando nuestro estado global centralizado
     GameState.agregarTiros(3);
 
-    // 3. Dar retroalimentación de éxito
-    mensaje.innerHTML = "🎉 ¡3 Tiros reclamados con éxito! Volviendo... 🎰";
+    // Dar retroalimentación de éxito
+    mensaje.innerHTML = "Tiros reclamados con éxito! Volviendo...";
 
-    // 4. Redireccionar a la máquina tragamonedas (index.html) después de 1.5 segundos
+    // Redireccionar a la máquina tragamonedas (index.html) después de 1.5 segundos
     setTimeout(() => {
         window.location.href = "../../index.html";
     }, 1500); 

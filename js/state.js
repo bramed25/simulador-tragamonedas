@@ -1,5 +1,3 @@
-// js/state.js
-
 const GameState = {
     // Inicializa el juego con 0 tiros y 0 boletos si no existen registros previos
     init() {
